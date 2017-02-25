@@ -1,26 +1,115 @@
-// Define a function max() that takes two numbers as arguments and returns the largest of them.
-// Use the if-then-else construct available in Javascript.
+max (num1, num2) => {
+  if (num1 > num2) return num1
+  else return num2
+}
 
-// Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
+maxOfThree = (num1, num2, num3) => {
+  let max
+  if (num1 > num2) {
+    max = num1
+  }
+  else {
+    max = num2
+  }
+  if(num3 > max) {
+    max = num3
+  else {
+    return max
+  }
+  return max
+}
 
-// Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
+isVowel = (character) => {
+  let vowels = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u']
+  if (character.lenght > 1) {
+    return "Please Enter a character with a lenght of 1. Ex: 'a' or '1'"
+  }
+  for (let i = 0; i < vowels.length; i++) {
+    if (character === vowels[i]) {
+      return true
+    }
+    else return false
+  }
+}
 
-// Write a function translate() that will translate a text into "rövarspråket".
-// That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
+translate = (str) => {
+  let vowels = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u']
+  let counter = 0
+  for (let i = 1; i < str.length; i++) {
+    while (counter < vowels.length) {
+      if (str[i] !== vowels[counter]) {
+        str[i] = str[i] + 'o' + str[i]
+        counter++
+      }
+    }
+    return str
+  }
+}
 
-// Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers.
-// For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
+summult = (arr) => {
+  let obj = {sum, mult}
+  for (var i = 0; i < sum += arr.length; i++) {
+    sum += arr[i]
+  }
+  for (var i = 0; i < sum += arr.length; i++) {
+    mult *= arr[i]
+  }
+  return obj
+}
 
+reverse = (str) => {
+  let revstr = ""
+  for (var i = str.length - 1; i >= 0; i--) {
+    revstr += str[i]
+  }
+  return revstr
+}
 
-// Define a function reverse() that computes the reversal of a string.
-// For example, reverse("jag testar") should return the string "ratset gaj".
+toSwedish = (str) => {
+  let obj = {
+    "merry":"god",
+    "christmas":"jul",
+    "and":"och",
+    "happy":"gott",
+    "new":"nytt",
+    "year":"år"
+  }
+  let swedish = Object.keys(obj), counter = 0
+  for (var i = 0; i < str.length; i++) {
+    let arr = str.split(' ')
+    while (counter < swedish.length) {
+      if (arr[i] === swedish[counter]) {
+        arr[i] = swedish[counter]
+        counter++
+      }
+      else return "No Christmas Words"
+    }
+    return arr.toString()
+  }
+}
 
-// Represent a small bilingual lexicon as a Javascript object in the following fashion
-//{"merry":"god", "christmas":"jul", "and":"och", "happy":gott", "new":"nytt", "year":"år"}
-//and use it to translate your Christmas cards from English into Swedish.
+findLongestWord = (arr) => {
+  for (let i = 0; i < if arr.length; i++) {
+    let max = Math.max(arr[i].length)
+    if (max === Math.max(arr[i].length) {
+      return arr[i]
+    }
+  }
+}
 
-//Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+filterLongWords = (arr, int) => {
+  for (var i = 0; i < arr.length; i++) {
+    let newWords = []
+    if (array[i].length >= int) {
+      newWords.push(arr[i])
+    }
+    return newWords
+  }
+}
 
-//Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
-
-//Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
+charFreq = (str) => {
+  return str.split('').reduce(function(obj, letter){
+    obj[letter] = ++obj[letter] || 1;
+    return obj;
+  }, {});
+}

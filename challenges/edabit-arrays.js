@@ -1,35 +1,108 @@
-// For each of the following challenges, make sure to solve the challenge on edabit AND include your solution code here for review
 
-// 1. Create a function that takes an array of positive and negative numbers. Return an array where the first element is the count of positive numbers and the second element is the sum of negative numbers.
-// https://edabit.com/challenge/xXJLZry3vYd4erPct
+function countPosSumNeg(nums) {
+  var positive = 0;
+  var negative = 0;
+  if(nums.length < 1){
+    return nums
+  }
+  for(var i = 0; i < nums.length; i++){
+    if(nums[i] > 0) {
+      positive += 1;
+    } else if( nums[i] < 0){
+      negative += nums[i];
+    }
+  }
+  return [positive, negative];
+}
 
+function getLastItem(arr) {
+  return arr[arr.length - 1]
+}
 
-// 2. Create a function that accepts an array and returns the last item in the array. The array can contain any of JavaScript's five primitive data types.
-// https://edabit.com/challenge/7JBTN4TbaxJQMdX9W
+function mergeArrays(a, b) {
+  let j = 1, i = 0
+  while (i < b.length) {
+    a.splice(j, 0, b[i])
+    j += 2
+    i++
+  }
+  return a
+}
 
-// 3. Create a function that takes two arrays and combines them by alternatingly taking elements from each array in turn.
-// https://edabit.com/challenge/kaNYPQQWHSX4zGNhj
+function removeSmallest(arr) {
+  if (arr === undefined) return []
+  let min = Math.min.apply(null, arr)
+  var index = arr.indexOf(min)
+  arr.splice(index, 1)
+  return arr
+  }
 
+function sumTwoSmallestNums(arr) {
+  var newArr = []
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] >= 0) {
+        newArr.push(arr[i])
+    }
+    let min = Math.min.apply(null, arr)
+  }
+  min = Math.min.apply(null, newArr)
+  var index = newArr.indexOf(min)
+  newArr.splice(index, 1)
+  min2 = Math.min.apply(null, newArr)
+  return min + min2
+}
 
-// 4. Create a function that takes an array of numbers and remove the smallest value. If there are multiple elements with the same value, remove the one with a lower index. If you get an empty array, return an empty array.
-// https://edabit.com/challenge/9ukwiKyv8R9NHSt3d
+function formatPhoneNumber(numbers) {
+  var form = [
+    '(',
+    numbers[0],
+    numbers[1],
+    numbers[2],
+    ')',' ',
+    numbers[3],
+    numbers[4],
+    numbers[5],
+    '-',
+    numbers[6],
+    numbers[7],
+    numbers[8],
+    numbers[9]
+  ];
+  var str = form.join();
+  return str.replace(/,/g, '');
+}
 
+function capMe(arr) {
+  var newArray = [];
+  var capLet = "";
+  var done = []
+  var str = arr.join();
+  for (var i = 0, j = 0; i < arr.length; i++, j++) {
+    newArray.push(arr[i].toLowerCase());
+    capLet += (arr[i][0].toUpperCase());
+    done.push(newArray[i].replace(newArray[i][0], capLet[i]));
+  }
+  return done;
+}
 
-// 5. Create a function that takes an array of numbers and returns the sum of the two lowest positive integers. No floats or empty arrays will be used in any of the test cases.
-// https://edabit.com/challenge/GNgCfKHWfQwByBNqa
+function minMaxLengthAverage(arr) {
+  function add(a,b) {return a+b}
+  var ave = (arr.reduce(add, 0)) / arr.length
+  var min = Math.min.apply(null, arr)
+  var max = Math.max.apply(null, arr)
+  return [min, max, arr.length, ave];
+}
 
-// 6. Create a function that accepts an array of 10 integers (between 0 and 9) and returns a string of those numbers in the form of a phone number.
-// https://edabit.com/challenge/Z6oY6EWwT9rde8YXm
+function findLargestNums(arr) {
+  var newArray = []
+  for (var i = 0; i < arr.length; i++) {
+    newArray.push(Math.max.apply(null, arr[i]))
+  }
+  return newArray
+}
 
-// 7. Create a function that takes an array of names and returns an array with the first letter capitalized.
-// https://edabit.com/challenge/ZN5cpGPNRS3nrjMo5
-
-
-// 8. Create a function that takes an array of numbers and returns the  following statistics:Minimum Value, Maximum Value, Sequence Length, Average Value
-// https://edabit.com/challenge/gpozv9DbFqrHDmSQZ
-
-// 9. Create a function that takes an array of arrays with numbers. Return a new (single) array with the largest numbers of each.
-// https://edabit.com/challenge/h7LTMAFeNz79rXB2Y
-
-// 10. Create a function that takes an object and returns the keys and values as separate arrays.
-// https://edabit.com/challenge/AP4hnF97anRc2mAZ6
+function keysAndValues(obj) {
+  var keys = Object.keys(obj)
+  var values = Object.values(obj)
+  return [keys, values]
+}
